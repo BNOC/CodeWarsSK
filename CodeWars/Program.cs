@@ -9,8 +9,6 @@ namespace CodeWars
         // Run Tests
 		public static void Main(string[] args)
         {
-			TicTacToeService ttt = new TicTacToeService();
-
             List<KeyValuePair<int, int>> movesMade = new();
 
             // Create grid
@@ -18,7 +16,7 @@ namespace CodeWars
             int gridSize = int.Parse(Console.ReadLine());
             TicTacToeService.CreateBoard(gridSize, movesMade);
 
-
+            // Could change this to loop until there's a winner
             for (int move = 1; move < (gridSize * gridSize) + 1; move++)
             {
                 // Read input
@@ -33,6 +31,7 @@ namespace CodeWars
 
                 movesMade.Add(new KeyValuePair<int, int>(playerMakingMove, playerMove));
 
+                // Could separate concern here - Make a move, display updated grid etc; 
                 TicTacToeService.MakeAMove(gridSize, playerMakingMove, playerMove, movesMade);
             }
         }
