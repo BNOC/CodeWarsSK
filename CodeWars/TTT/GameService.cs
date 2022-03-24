@@ -35,8 +35,6 @@ namespace CodeWars.TTT
             _board = new List<string>() { "0", "1", "2", "3", "4", "5", "6", "7", "8" };
         }
 
-
-
         public GameState CheckGameState(List<string> board)
         {
             if ((board[0] == board[1] && board[1] == board[2]) ||
@@ -63,13 +61,11 @@ namespace CodeWars.TTT
             }
         }
 
-        public bool RequestMove(int move, int player)
+        public bool RequestMove(int move, int player, List<string> board)
         {
-            //var board = GetCurrentBoard();
-            if (_board[move] != "X" && _board[move] != "O")
+            if (board[move] != "X" && board[move] != "O")
             {
                 _board[move] = player == 1 ? "X" : "O";
-                CurrentBoard(_board);
                 return true;
             }
 

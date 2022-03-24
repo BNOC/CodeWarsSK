@@ -34,7 +34,9 @@ namespace CodeWarsUnitTests.TTT
         {
             var board = _gs.GetCurrentBoard();
             List<string> expected = new() { "0", "1", "2", "3", "4", "5", "6", "7", "8" };
+            int expectedCount = 9;
 
+            Assert.AreEqual(expectedCount, board.Count);
             Assert.AreEqual(expected.Count, board.Count);
         }
 

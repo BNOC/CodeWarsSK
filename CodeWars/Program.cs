@@ -17,14 +17,21 @@ namespace CodeWars
         public static void Main(string[] args)
         {
             var gs = new GameService();
-            gs.GetBaseBoard();
-            Console.WriteLine(gs.GetCurrentBoard().Count());
+            gs.GetCurrentBoard();
 
-            var board = new List<string>() { "X", "O", "X", "X", "X", "X", "6", "X", "O" };
-            gs.CurrentBoard(board);
-            var a = gs.RequestMove(5, 2);
+            var move = Console.ReadLine();
+            var player = 1;
 
-            var b = a;
+            if (gs.RequestMove(int.Parse(move), player, gs.GetCurrentBoard()))
+            {
+                Console.WriteLine("Accepted move to spot " + move);
+            }
+
+            var a = gs.GetCurrentBoard();
+
+            //var board = new List<string>() { "X", "O", "X", "X", "X", "X", "6", "X", "O" };
+            //gs.CurrentBoard(board);
+            //var a = gs.RequestMove(5, 2);
         }
 
         public static void FindOddInts(int[] i)
