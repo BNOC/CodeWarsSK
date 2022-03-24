@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodeWars.TTT;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,8 +7,31 @@ namespace CodeWars
 {
     public class Program
     {
+        private GameService _gs;
+
+        public Program()
+        {
+            _gs = new GameService();
+        }
         // Run Tests
-		public static void Main(string[] args)
+        public static void Main(string[] args)
+        {
+            var gs = new GameService();
+            gs.GetBaseBoard();
+            Console.WriteLine(gs.GetCurrentBoard().Count());
+
+            var board = new List<string>() { "X", "O", "X", "X", "X", "X", "6", "X", "O" };
+            gs.CurrentBoard(board);
+            var a = gs.RequestMove(5, 2);
+
+            var b = a;
+        }
+
+        public static void FindOddInts(int[] i)
+        {
+            Console.WriteLine(FindOddInt.Find(i));
+        }
+        public static void TicTacToe()
         {
             List<KeyValuePair<int, int>> movesMade = new();
 
